@@ -29,6 +29,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.jetpactcompose.ConstrainLayout.ConstraintLayoutScreenApp
 import com.example.jetpactcompose.ui.theme.ConstraintLayoutScreen
 import com.example.jetpactcompose.ui.theme.JetpactComposeTheme
 
@@ -49,7 +50,7 @@ class MainActivity : ComponentActivity() {
 //            var text by remember { mutableStateOf("") }
 //            StatelessTextField(text, {newText -> text = newText})
 //            SetNavigator()
-            ConstraintLayoutScreen()
+            ConstraintLayoutScreenApp()
 
         }
     }
