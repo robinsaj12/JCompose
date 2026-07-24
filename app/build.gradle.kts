@@ -2,7 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+//    kotlin("kapt")
+    id("kotlin-kapt") apply true
+//    kotlin("android") version "2.0.21"
+
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
+
 
 android {
     namespace = "com.example.jetpactcompose"
@@ -49,6 +56,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.runtime.livedata)
+    implementation(libs.androidx.ui.graphics)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -64,4 +73,33 @@ dependencies {
     // Jetpack Compose integration
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
+    val room_version = "2.7.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+
+    // KAPT
+    kapt("androidx.room:room-compiler:$room_version")
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:${room_version}")
+
+
+
+
+    /* ---------------------Retrofilt ------------------------------- */
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+
+
+    val lifecycle_verison = "2.8.2"
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:${lifecycle_verison}")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_verison}")
+
+    /* --------------------- Hilt ------------------------------- */
+    implementation("com.google.dagger:hilt-android:2.57.1")
+    ksp("com.google.dagger:hilt-android-compiler:2.57.1")
+
+
 }
+
+
